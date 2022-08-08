@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calculator</title>
+<link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+<center><h1>Calculator</h1></center>
+<center>
+<table id="calc">
+    <tr>
+        <td colspan="4" > <input type="text" id = "res" </td>
+        <td > <input type="button" value="CLEAR" onclick="clearScreen()" </td>
+    </tr>
+
+    <tr>
+        <td colspan="2"> <input type="button" value="1" onclick="getValue('1')"</td>
+        <td colspan="2"> <input type="button" value="2" onclick="getValue('2')"</td>
+        <td colspan="2"> <input type="button" value="3" onclick="getValue('3')"</td>
+    </tr>
+
+    <tr>
+        <td colspan="2"> <input type="button" value="4" onclick="getValue('4')"</td>
+        <td colspan="2"> <input type="button" value="5" onclick="getValue('5')"</td>
+        <td colspan="2"> <input type="button" value="6" onclick="getValue('6')"</td>
+    </tr>
+
+    <tr>
+        <td colspan="2"> <input type="button" value="7" onclick="getValue('7')"</td>
+        <td colspan="2"> <input type="button" value="8" onclick="getValue('8')"</td>
+        <td colspan="2"> <input type="button" value="9" onclick="getValue('9')"</td>
+    </tr>
+
+    <tr>
+        <td colspan="1"> <input type="button" value="+" onclick="getValue('+')"</td>
+        <td colspan="1"> <input type="button" value="/" onclick="getValue('/')"</td>
+        <td colspan="1"> <input type="button" value="*" onclick="getValue('*')"</td>
+        <td colspan="1"> <input type="button" value="-" onclick="getValue('-')"</td>
+        <td colspan="1"> <input type="button" value="ENTER" onclick="Calculate()" </td>
+    </tr>
+
+</table>
+</center>
+
+<script>
+
+
+    function clearScreen(){
+        document.getElementById("res").value = "";
+    }
+
+    function getValue(val){
+        document.getElementById("res").value+=val;
+    }
+
+    
+
+    function Calculate(){
+            let equation = (document.getElementById("res").value)+"";
+            let num1 = parseInt(equation);
+            let num2 = parseInt(equation.substring(num1.toString().length+1));
+            let operation = equation.charAt(num1.toString().length);
+
+            console.log("Equation = "+equation);
+            console.log("num 1 = "+num1);
+            console.log("num 2 = "+num2);
+            console.log("operation = "+operation);
+
+            switch(operation){
+
+                case "+" : ans = num1 + num2;
+                           document.getElementById("res").value = ans;
+                           break;
+
+                case "-" : ans = num1 - num2;
+                           document.getElementById("res").value = ans;
+                           break;
+
+                case "*" : ans = num1 * num2;
+                           document.getElementById("res").value = ans;
+                           break;
+
+                case "/" : ans = num1 / num2;
+                           document.getElementById("res").value = ans;
+                           break;
+
+                default : document.getElementById("res").value = ""
+
+                
+            }
+
+            
+    }
+
+
+</script>
+
+</body>
+</html>
+
